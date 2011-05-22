@@ -3,7 +3,7 @@ name:                copilot-core
 version:             0.1
 synopsis:            CoPilot intermediate representation
 description:         Blah blah blah...
-license-file:        LICENSE
+license-file:        LICENSE.txt
 author:              Lee Pike, Robin Morisset, Alwyn Goodloe, Sebastian Niller, Nis Nordby Wegmann
 maintainer:          niswegmann@gmail.com
 stability:           Experimental
