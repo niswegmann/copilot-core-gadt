@@ -1,4 +1,6 @@
--- © 2011 National Institute of Aerospace / Galois, Inc.
+-- Copyright © 2011 National Institute of Aerospace / Galois, Inc.
+-- CoPilot is licensed under a Creative Commons Attribution 3.0 Unported License.
+-- See http://creativecommons.org/licenses/by/3.0 for license terms.
 
 -- |
 
@@ -17,37 +19,37 @@ import Data.Monoid (Monoid)
 import Language.Copilot.Core.Type (HasType)
 
 class Key2Int key where
-  key2int ∷ key a → Int
+  key2int ∷ key α → Int
 
 class Key2Int (Key map) ⇒ HeteroMap map where
 
   type Key map ∷ * → *
 
   lookup
-    ∷ HasType a
-     ⇒ Key map a
-     → map f
-     → f a
+    ∷ HasType α
+    ⇒ Key map α
+    → map f
+    → f α
 
   mapWithKey
-    ∷ (∀ a . Key map a → f a → g a)
-     → map f
-     → map g
+    ∷ (∀ α . Key map α → f α → g α)
+    → map f
+    → map g
 
   foldMapWithKey
     ∷ Monoid m
-     ⇒ (∀ a . Key map a → f a → m)
-     → map f
-     → m
+    ⇒ (∀ α . Key map α → f α → m)
+    → map f
+    → m
 
   foldMapWithKeyM
     ∷ (Monoid m, Applicative t)
-     ⇒ (∀ a . Key map a → f a → t m)
-     → map f
-     → t m
+    ⇒ (∀ α . Key map α → f α → t m)
+    → map f
+    → t m
 
   traverseWithKey
     ∷ Applicative t
-     ⇒ (∀ a . Key map a → f a → t (g a))
-     → map f
-     → t (map g)
+    ⇒ (∀ α . Key map α → f α → t (g α))
+    → map f
+    → t (map g)

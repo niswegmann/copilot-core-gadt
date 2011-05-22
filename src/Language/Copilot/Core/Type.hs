@@ -1,4 +1,6 @@
--- © 2011 National Institute of Aerospace / Galois, Inc.
+-- Copyright © 2011 National Institute of Aerospace / Galois, Inc.
+-- CoPilot is licensed under a Creative Commons Attribution 3.0 Unported License.
+-- See http://creativecommons.org/licenses/by/3.0 for license terms.
 
 -- | Defines Copilot types. Must be in its own module
 -- as HeteroMap depends on HasType.
@@ -16,7 +18,7 @@ module Language.Copilot.Core.Type
   , ByteVector (..)
   , HasType (..)
   , Streamable
-  , sizeOf
+  , sizeOfType
   ) where
 
 import Control.DeepSeq (NFData (..))
@@ -40,9 +42,9 @@ data Type ∷ * → * where
   Double ∷ Type Double
   BVec   ∷ (Eq n, Nat n, Show n) ⇒ n → Type (ByteVector n)
 
-deriving instance Eq (Type a)
+deriving instance Eq (Type α)
 
-deriving instance Show (Type a)
+deriving instance Show (Type α)
 
 data ByteVector ∷ * → * where
   ByteVector ∷ Nat n ⇒ [Int8] → ByteVector n
@@ -54,7 +56,7 @@ deriving instance Show (ByteVector n)
 instance NFData (ByteVector n) where
   rnf (ByteVector xs) = rnf xs
 
-class HasType a where typeOf ∷ Type a
+class HasType α where typeOf ∷ Type α
 
 instance HasType Bool   where typeOf = Bool
 instance HasType Int8   where typeOf = Int8
@@ -88,11 +90,11 @@ instance EqT Type where
   eqT _      _      = Nothing
 
 class
-  ( NFData a
-  , Eq a
-  , Show a
-  , HasType a
-  ) ⇒ Streamable a
+  ( NFData α
+  , Eq α
+  , Show α
+  , HasType α
+  ) ⇒ Streamable α
 
 instance Streamable Bool
 instance Streamable Int8
@@ -107,8 +109,8 @@ instance Streamable Float
 instance Streamable Double
 instance (Eq n, Nat n, Show n) ⇒ Streamable (ByteVector n)
 
-sizeOf ∷ Type a → Int
-sizeOf t =
+sizeOfType ∷ Type α → Int
+sizeOfType t =
   case t of
     Bool   → 1
     Int8   → 1

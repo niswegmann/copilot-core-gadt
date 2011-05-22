@@ -1,8 +1,9 @@
--- © 2011 National Institute of Aerospace / Galois, Inc.
--- CoPilot is licensed under a Creative Commons Attribution
--- 3.0 Unported License: http://creativecommons.org/licenses/by/3.0
+-- Copyright © 2011 National Institute of Aerospace / Galois, Inc.
+-- CoPilot is licensed under a Creative Commons Attribution 3.0 Unported License.
+-- See http://creativecommons.org/licenses/by/3.0 for license terms.
 
--- |
+-- | This module defines the intermediate representation for CoPilot
+-- specifications.
 
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
