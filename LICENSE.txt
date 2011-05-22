@@ -30,12 +30,12 @@ With the understanding that:
   * Other Rights — In no way are any of the following rights affected by the
     license:
 
-      * Your fair dealing or fair use rights, or other applicable copyright
+      - Your fair dealing or fair use rights, or other applicable copyright
         exceptions and limitations;
 
-      * The author's moral rights;
+      - The author's moral rights;
 
-      * Rights other persons may have either in the work itself or in how the
+      - Rights other persons may have either in the work itself or in how the
         work is used, such as publicity or privacy rights.
 
 This is a human-readable summary of the Legal Code, the full license is here:
