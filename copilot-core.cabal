@@ -1,0 +1,36 @@
+cabal-version:       >=1.2
+name:                copilot-core
+version:             0.1
+synopsis:            CoPilot intermediate representation
+description:         Blah blah blah...
+license-file:        LICENSE
+author:              Lee Pike, Robin Morisset, Alwyn Goodloe, Sebastian Niller, Nis Nordby Wegmann
+maintainer:          niswegmann@gmail.com
+stability:           Experimental
+category:            Language, Embedded
+build-type:          Simple
+
+library
+  hs-source-dirs: src
+
+  build-depends:
+    base >= 4,
+    containers,
+    deepseq,
+    type-equality >= 0.1,
+    type-level-numbers >= 0.1.0.2
+
+  exposed-modules:
+    Language.Copilot.Core
+    Language.Copilot.Core.HeteroMap
+    Language.Copilot.Core.Type
+    Language.Copilot.Core.Interpret
+
+  other-modules:
+
+  ghc-options:
+    -fwarn-tabs
+    -O2
+    -auto-all
+    -caf-all
+    -Wall
