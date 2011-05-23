@@ -30,9 +30,9 @@ import Language.Copilot.Core.Type
 data Spec ∷ ((* → *) → *) → * → * where
   Spec
     ∷ (HasType α, HeteroMap map)
-     ⇒ map (Strm (Key map))
-     → Expr (Key map) α
-     → Spec map α
+    ⇒ map (Strm (Key map))
+    → Expr (Key map) α
+    → Spec map α
 
 data WithSpec α = WithSpec
   ( ∀ β .
@@ -45,19 +45,18 @@ data WithSpec α = WithSpec
 data Trig ref where
   Trig
     ∷ Streamable α
-     ⇒ String
-     → Expr ref α
-     → Trig ref
+    ⇒ String
+    → Expr ref α
+    → Trig ref
 
 -- | A canonized stream.
 data Strm ∷ (* → *) → * → * where
   Strm
-    --
     ∷ (Streamable α, Eq (ref α), Ord (ref α), Show (ref α))
-     ⇒ Type α
-     → [α]
-     → Expr ref α
-     → Strm ref α
+    ⇒ Type α
+    → [α]
+    → Expr ref α
+    → Strm ref α
 
 deriving instance Show (Strm ref α)
 
@@ -65,24 +64,24 @@ deriving instance Show (Strm ref α)
 data Expr ∷ (* → *) → * → * where
   Const
     ∷ Streamable α
-     ⇒ α
-     → Expr ref α
+    ⇒ α
+    → Expr ref α
   -- The temporal look-ahead operator;
   -- It always points to a canonized stream.
   Drop
     ∷ (Streamable α, Eq (ref α), Ord (ref α), Show (ref α))
-     ⇒ Int
-     → ref α
-     → Expr ref α
+    ⇒ Int
+    → ref α
+    → Expr ref α
   Extern -- An external variable
     ∷ Streamable α
-     ⇒ String
-     → Expr ref α
+    ⇒ String
+    → Expr ref α
   Op1 -- An unary operator.
     ∷ (Streamable α, Streamable β)
-     ⇒ Op1 α β
-     → Expr ref α
-     → Expr ref β
+    ⇒ Op1 α β
+    → Expr ref α
+    → Expr ref β
   Op2 -- A binary operator.
     ∷ (Streamable α, Streamable β, Streamable γ)
     ⇒ Op2 α β γ

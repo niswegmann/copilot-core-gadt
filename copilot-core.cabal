@@ -17,14 +17,16 @@ library
     base >= 4,
     containers,
     deepseq,
+    pretty >= 1.0,
     type-equality >= 0.1,
     type-level-numbers >= 0.1.0.2
 
   exposed-modules:
     Language.Copilot.Core
     Language.Copilot.Core.HeteroMap
-    Language.Copilot.Core.Type
     Language.Copilot.Core.Interpret
+    Language.Copilot.Core.Type
+    Language.Copilot.Core.PrettyPrint
 
   other-modules:
 

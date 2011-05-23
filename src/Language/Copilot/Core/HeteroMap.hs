@@ -19,7 +19,7 @@ import Data.Monoid (Monoid)
 import Language.Copilot.Core.Type (HasType)
 
 class Key2Int key where
-  key2int ∷ key α → Int
+  key2Int ∷ key α → Int
 
 class Key2Int (Key map) ⇒ HeteroMap map where
 
@@ -35,6 +35,18 @@ class Key2Int (Key map) ⇒ HeteroMap map where
     ∷ (∀ α . Key map α → f α → g α)
     → map f
     → map g
+
+  fold
+    ∷ (∀ α . f α → β → β)
+    → β
+    → map f
+    → β
+
+  foldWithKey
+    ∷ (∀ α . Key map α → f α → β → β)
+    → β
+    → map f
+    → β
 
   foldMapWithKey
     ∷ Monoid m

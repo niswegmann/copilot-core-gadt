@@ -18,6 +18,7 @@ module Language.Copilot.Core.Type
   , ByteVector (..)
   , HasType (..)
   , Streamable
+  , typeOfElem
   , sizeOfType
   ) where
 
@@ -108,6 +109,9 @@ instance Streamable Word64
 instance Streamable Float
 instance Streamable Double
 instance (Eq n, Nat n, Show n) ⇒ Streamable (ByteVector n)
+
+typeOfElem :: HasType α ⇒ α → Type α
+typeOfElem _ = typeOf
 
 sizeOfType ∷ Type α → Int
 sizeOfType t =
